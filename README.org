@@ -1,0 +1,138 @@
+*Prairie Hill Learning Center*
+
+* Template
+
+  [[./app/index.html]]
+
+  #+NAME: index template
+  #+begin_src web :tangle app/index.html :padline no
+    <!doctype html>
+    <html>
+      <head>
+        <link href="css/main.css" rel="stylesheet" />
+
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+      </head>
+
+      <body ng-app="pHill" ng-controller="MainController">
+
+        <div id="header">
+          <img ng-src="{{ site_logo }}" style="width:15%;">
+        </div>
+
+        <div class="main">
+          <h1>{{ site_title }}</h1>
+          <h2>{{ site_quote }}</h2>
+
+          <div ng-repeat="page in pages">
+            <page-info info="page"></page-info>
+          </div>
+        </div>
+
+        <!-- Modules -->
+        <script src="js/app.js"></script>
+
+        <!-- Controllers -->
+        <script src="js/controllers/MainController.js"></script>
+
+        <!-- Directives -->
+        <script src="js/directives/pageInfo.js"></script>
+      </body>
+    </html>
+  #+end_src
+
+** Styles
+
+   [[./app/css/main.css]]
+
+   #+NAME: main css
+   #+begin_src css :tangle app/css/main.css :padline no
+   #+end_src
+
+* Scope
+** Controllers
+
+   [[./app/js/app.js]]
+
+   #+NAME: application module
+   #+begin_src js :tangle app/js/app.js :padline no
+     var app = angular.module("pHill", []);
+   #+end_src
+
+   [[./app/js/controllers/MainController.js]]
+
+   #+NAME: main controller
+   #+begin_src js :tangle app/js/controllers/MainController.js :padline no
+     app.controller('MainController', ['$scope', function($scope) {
+         $scope.site_title = 'Prairie Hill Learning Center';
+         $scope.site_quote = 'Education is a natural process spontaneously carried out by the human individual, and is acquired not by listening to words but by experiencing them. --Maria Montessori, Education for a New World';
+         $scope.site_logo = 'img/logo.jpg';
+         $scope.pages = [
+             {
+                 title: 'Home'
+             },
+             {
+                 title: 'About'
+             },
+             {
+                 title: 'Programs'
+             },
+             {
+                 title: 'Tours'
+             },
+             {
+                 title: 'Staff'
+             },
+             {
+                 title: 'Calendar'
+             },
+             {
+                 title: 'Employment'
+             },
+             {
+                 title: 'Donate'
+             },
+             {
+                 title: 'Contact'
+             },
+             {
+                 title: 'Events'
+             }
+         ];
+     }]);
+   #+end_src
+
+** Directives
+
+   [[./app/js/directives/pageInfo.js]]
+
+   #+NAME: pageInfo directive
+   #+begin_src js :tangle app/js/directives/pageInfo.js :padline no
+     app.directive('pageInfo', function() {
+             return {
+             restrict: 'E',
+         scope: {
+             info: '='
+         },
+         templateUrl: 'js/directives/pageInfo.html'
+       };
+     });
+
+   #+end_src
+
+   [[./app/js/directives/pageInfo.html]]
+
+   #+NAME: pageInfo template
+   #+begin_src web :tangle app/js/directives/pageInfo.html :padline no
+     <a href="#">{{ info.title }}</a>
+   #+end_src
+
+* Dev
+
+** Thu May 19 11:08:43 CDT 2016
+
+   : Init:
+
+   Rebuilding the Prairie Hill site as an Angular application after constructing
+   an API on the old site.
+  
