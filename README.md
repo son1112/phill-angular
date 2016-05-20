@@ -14,7 +14,11 @@
 <li><a href="#sec-2">2. Scope</a>
 <ul>
 <li><a href="#sec-2-1">2.1. Controllers</a></li>
-<li><a href="#sec-2-2">2.2. Directives</a></li>
+<li><a href="#sec-2-2">2.2. Directives</a>
+<ul>
+<li><a href="#sec-2-2-1">2.2.1. pageInfo</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li><a href="#sec-3">3. Dev</a>
@@ -40,46 +44,63 @@
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1">
     
+        <link href='http://fonts.googleapis.com/css?family=Lobster|Roboto:400,100,100italic,700italic,700|Clicker+Script|Kaushan+Script|News+Cycle:400,700|BenchNine|Poiret+One|Open+Sans+Condensed:300|Playball|Shadows+Into+Light+Two' rel='stylesheet' type='text/css'>
+    
         <!--[if lte IE 8]>
-            <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/grids-responsive-old-ie-min.css">
+        <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/grids-responsive-old-ie-min.css">
         <![endif]-->
         <!--[if gt IE 8]><!-->
-            <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/grids-responsive-min.css">
+        <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/grids-responsive-min.css">
         <!--<![endif]-->
       </head>
     
       <body ng-app="pHill" ng-controller="MainController">
     
         <!-- header -->
-        <div id="header" class="pure-g">
-          <div class="pure-u-1-8">
+        <div id="header" class="pure-g pure-img">
     
-            <!-- logo -->
-            <div id="logo" class="padded">
+          <!-- logo -->
+          <div class="pure-u-1-8">
+            <div id="logo" class="padded-half">
               <img class="pure-img" ng-src="{{ site_logo }}">
             </div>
+          </div>
     
-            <!-- nav -->
-            <div id="nav" class="padded">
-              <div ng-repeat="page in pages">
-                <page-info info="page"></page-info>
+          <!-- title -->
+          <div class="title pure-u-7-8">
+            <div class="padded-1">
+              <h1>{{ site_title }}</h1>
+            </div>
+          </div>
+    
+        </div>
+    
+        <div id="main" class="pure-g">
+    
+          <!-- nav -->
+          <div class="pure-u-1-7 pure-u-sm-1-8">
+            <div id="nav"> 
+              <div class="pure-menu custom-restricted-width">
+                <nav>
+                  <ul class="pure-menu-list">
+                    <div ng-repeat="page in pages">
+                      <page-info info="page"></page-info>
+                    </div>
+                  </ul>
+                </nav>
               </div>
             </div>
           </div>
     
-          <div class="pure-u-7-8">
-            <div class="padded">
-              <h1>{{ site_title }}</h1>
-            </div>
+          <div id="content" class="pure-u-6-7 pure-u-sm-8-9">
+            {{ page_content }}
           </div>
-        </div>
     
-        <div id="main" class="pure-g">
         </div>
     
         <div id="footer" class="pure-g">
           <div class="pure-u-1-1">
-            <div class="padded">
+            <div class="padded-1">
               <h2>{{ site_quote }}</h2>
             </div>
           </div>
@@ -100,8 +121,47 @@
 
 <./app/css/main.css>
 
-    .padded {
+    html, button, input, select, textarea,
+    .pure-g [class *= "pure-u"] {
+        font-family: Roboto, 'Clicker Script', 'Kaushan Script', 'News Cycle', BenchNine, 'Poiret One', 'Open Sans Condensed', Playball, 'Shadows Into Light Two';
+    }
+    html {
+        background: url('../img/audrey_jump.jpg') top center no-repeat;
+        background-size: 100%;
+    }
+    
+    .custom-restricted-width {
+        /*display: inline-block;*/
+        /*width: 10em;*/
+    }
+    
+    .padded-1 {
         padding: 1em;
+    }
+    .padded-half {
+        padding: 0.5em;
+    }
+    
+    .button-go {
+        background: rgb(27, 125, 0);
+        margin: 2px 0;
+    }
+    
+    .pure-g [class *= "title"] {
+        font-family: Lobster, 'Clicker Script', 'Kaushan Script', 'News Cycle', BenchNine, 'Poiret One', 'Open Sans Condensed', Playball, 'Shadows Into Light Two';
+        color: white;
+        text-shadow:
+        -1px -1px 0 #000,
+        1px -1px 0 #000,
+        -1px 1px 0 #000,
+        1px 1px 0 #000;
+    
+        font-size: 2em;
+    }
+    
+    #logo {
+        background: white;
+        border-radius: 5%;
     }
 
 ### Pure CSS<a id="sec-1-1-1" name="sec-1-1-1"></a>
@@ -133,41 +193,71 @@
         $scope.site_title = 'Prairie Hill Learning Center';
         $scope.site_quote = 'Education is a natural process spontaneously carried out by the human individual, and is acquired not by listening to words but by experiencing them. --Maria Montessori, Education for a New World';
         $scope.site_logo = 'img/logo.jpg';
+        $scope.bg_imgs = [
+            {
+                file: 'img/audrey_jump.jpg'
+            },
+            {
+                file: 'img/logo.jpg'
+            }
+        ];
         $scope.pages = [
             {
-                title: 'Home'
+                title: 'Home',
+                subtitle: '',
+                message: 'Welcome to Prairie Hill Learning Center!'
             },
             {
-                title: 'About'
+                title: 'About',
+                subtitle: '',
+                message: 'Welcome to Prairie Hill Learning Center!'
             },
             {
-                title: 'Programs'
+                title: 'Programs',
+                subtitle: '',
+                message: 'Welcome to Prairie Hill Learning Center!'
             },
             {
-                title: 'Tours'
+                title: 'Tours',
+                subtitle: '',
+                message: 'Welcome to Prairie Hill Learning Center!'
             },
             {
-                title: 'Staff'
+                title: 'Staff',
+                subtitle: '',
+                message: 'Welcome to Prairie Hill Learning Center!'
             },
             {
-                title: 'Calendar'
+                title: 'Calendar',
+                subtitle: '',
+                message: 'Welcome to Prairie Hill Learning Center!'
             },
             {
-                title: 'Employment'
+                title: 'Employment',
+                subtitle: '',
+                message: 'Welcome to Prairie Hill Learning Center!'
             },
             {
-                title: 'Donate'
+                title: 'Donate',
+                subtitle: '',
+                message: 'Welcome to Prairie Hill Learning Center!'
             },
             {
-                title: 'Contact'
+                title: 'Contact',
+                subtitle: '',
+                message: 'Welcome to Prairie Hill Learning Center!'
             },
             {
-                title: 'Events'
+                title: 'Events',
+                subtitle: '',
+                message: 'Welcome to Prairie Hill Learning Center!'
             }
         ];
     }]);
 
 ## Directives<a id="sec-2-2" name="sec-2-2"></a>
+
+### pageInfo<a id="sec-2-2-1" name="sec-2-2-1"></a>
 
 <./app/js/directives/pageInfo.js>
 
@@ -183,7 +273,9 @@
 
 <./app/js/directives/pageInfo.html>
 
-    <button class="pure-button pure-button-primary">{{ info.title }}</button>
+    <li class="pure-menu-item">
+      <button class="pure-button pure-button-primary button-go pure-u-1-1">{{ info.title }}</button>
+    </li>
 
 # Dev<a id="sec-3" name="sec-3"></a>
 

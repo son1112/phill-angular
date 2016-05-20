@@ -1,3 +1,42 @@
-.padded {
+html, button, input, select, textarea,
+.pure-g [class *= "pure-u"] {
+    font-family: Roboto, 'Clicker Script', 'Kaushan Script', 'News Cycle', BenchNine, 'Poiret One', 'Open Sans Condensed', Playball, 'Shadows Into Light Two';
+}
+html {
+    background: url('../img/audrey_jump.jpg') top center no-repeat;
+    background-size: 100%;
+}
+
+.custom-restricted-width {
+    /*display: inline-block;*/
+    /*width: 10em;*/
+}
+
+.padded-1 {
     padding: 1em;
+}
+.padded-half {
+    padding: 0.5em;
+}
+
+.button-go {
+    background: rgb(27, 125, 0);
+    margin: 2px 0;
+}
+
+.pure-g [class *= "title"] {
+    font-family: Lobster, 'Clicker Script', 'Kaushan Script', 'News Cycle', BenchNine, 'Poiret One', 'Open Sans Condensed', Playball, 'Shadows Into Light Two';
+    color: white;
+    text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
+    
+    font-size: 2em;
+}
+
+#logo {
+    background: white;
+    border-radius: 5%;
 }

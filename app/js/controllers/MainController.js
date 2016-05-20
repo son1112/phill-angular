@@ -2,36 +2,64 @@ app.controller('MainController', ['$scope', function($scope) {
     $scope.site_title = 'Prairie Hill Learning Center';
     $scope.site_quote = 'Education is a natural process spontaneously carried out by the human individual, and is acquired not by listening to words but by experiencing them. --Maria Montessori, Education for a New World';
     $scope.site_logo = 'img/logo.jpg';
+    $scope.bg_imgs = [
+        {
+            file: 'img/audrey_jump.jpg'
+        },
+        {
+            file: 'img/logo.jpg'
+        }
+    ];
     $scope.pages = [
         {
-            title: 'Home'
+            title: 'Home',
+            subtitle: '',
+            message: 'Welcome to Prairie Hill Learning Center!'
         },
         {
-            title: 'About'
+            title: 'About',
+            subtitle: '',
+            message: 'Welcome to Prairie Hill Learning Center!'
         },
         {
-            title: 'Programs'
+            title: 'Programs',
+            subtitle: '',
+            message: 'Welcome to Prairie Hill Learning Center!'
         },
         {
-            title: 'Tours'
+            title: 'Tours',
+            subtitle: '',
+            message: 'Welcome to Prairie Hill Learning Center!'
         },
         {
-            title: 'Staff'
+            title: 'Staff',
+            subtitle: '',
+            message: 'Welcome to Prairie Hill Learning Center!'
         },
         {
-            title: 'Calendar'
+            title: 'Calendar',
+            subtitle: '',
+            message: 'Welcome to Prairie Hill Learning Center!'
         },
         {
-            title: 'Employment'
+            title: 'Employment',
+            subtitle: '',
+            message: 'Welcome to Prairie Hill Learning Center!'
         },
         {
-            title: 'Donate'
+            title: 'Donate',
+            subtitle: '',
+            message: 'Welcome to Prairie Hill Learning Center!'
         },
         {
-            title: 'Contact'
+            title: 'Contact',
+            subtitle: '',
+            message: 'Welcome to Prairie Hill Learning Center!'
         },
         {
-            title: 'Events'
+            title: 'Events',
+            subtitle: '',
+            message: 'Welcome to Prairie Hill Learning Center!'
         }
     ];
 }]);
