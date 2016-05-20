@@ -4,7 +4,11 @@
 <ul>
 <li><a href="#sec-1">1. Template</a>
 <ul>
-<li><a href="#sec-1-1">1.1. Styles</a></li>
+<li><a href="#sec-1-1">1.1. Styles</a>
+<ul>
+<li><a href="#sec-1-1-1">1.1.1. Pure CSS</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li><a href="#sec-2">2. Scope</a>
@@ -31,23 +35,47 @@
     <!doctype html>
     <html>
       <head>
+        <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
         <link href="css/main.css" rel="stylesheet" />
-    
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+        <!--[if lte IE 8]>
+            <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/grids-responsive-old-ie-min.css">
+        <![endif]-->
+        <!--[if gt IE 8]><!-->
+            <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/grids-responsive-min.css">
+        <!--<![endif]-->
       </head>
     
       <body ng-app="pHill" ng-controller="MainController">
     
-        <div id="header">
-          <img ng-src="{{ site_logo }}" style="width:15%;">
+        <div id="header" class="pure-g">
+          <div class="pure-u-1-8">
+            <div class="padded">
+              <img class="pure-img" ng-src="{{ site_logo }}">
+            </div>
+            <div class="padded">
+              <div ng-repeat="page in pages">
+                <page-info info="page"></page-info>
+              </div>
+            </div>
+          </div>
+          <div class="pure-u-7-8">
+            <div class="padded">
+              <h1>{{ site_title }}</h1>
+            </div>
+          </div>
         </div>
     
-        <div class="main">
-          <h1>{{ site_title }}</h1>
-          <h2>{{ site_quote }}</h2>
+        <div id="main" class="pure-g">
+        </div>
     
-          <div ng-repeat="page in pages">
-            <page-info info="page"></page-info>
+        <div id="footer" class="pure-g">
+          <div class="pure-u-1-1">
+            <div class="padded">
+              <h2>{{ site_quote }}</h2>
+            </div>
           </div>
         </div>
     
@@ -65,6 +93,25 @@
 ## Styles<a id="sec-1-1" name="sec-1-1"></a>
 
 <./app/css/main.css>
+
+    .padded {
+        padding: 1em;
+    }
+
+### Pure CSS<a id="sec-1-1-1" name="sec-1-1-1"></a>
+
+1
+
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--[if lte IE 8]>
+        <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/grids-responsive-old-ie-min.css">
+    <![endif]-->
+    <!--[if gt IE 8]><!-->
+        <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/grids-responsive-min.css">
+    <!--<![endif]-->
 
 # Scope<a id="sec-2" name="sec-2"></a>
 
@@ -130,7 +177,7 @@
 
 <./app/js/directives/pageInfo.html>
 
-    <a href="#">{{ info.title }}</a>
+    <button class="pure-button pure-button-primary">{{ info.title }}</button>
 
 # Dev<a id="sec-3" name="sec-3"></a>
 

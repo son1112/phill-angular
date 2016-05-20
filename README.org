@@ -9,26 +9,50 @@
     <!doctype html>
     <html>
       <head>
+        <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
         <link href="css/main.css" rel="stylesheet" />
-
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!--[if lte IE 8]>
+            <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/grids-responsive-old-ie-min.css">
+        <![endif]-->
+        <!--[if gt IE 8]><!-->
+            <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/grids-responsive-min.css">
+        <!--<![endif]-->
       </head>
 
       <body ng-app="pHill" ng-controller="MainController">
 
-        <div id="header">
-          <img ng-src="{{ site_logo }}" style="width:15%;">
-        </div>
-
-        <div class="main">
-          <h1>{{ site_title }}</h1>
-          <h2>{{ site_quote }}</h2>
-
-          <div ng-repeat="page in pages">
-            <page-info info="page"></page-info>
+        <div id="header" class="pure-g">
+          <div class="pure-u-1-8">
+            <div class="padded">
+              <img class="pure-img" ng-src="{{ site_logo }}">
+            </div>
+            <div class="padded">
+              <div ng-repeat="page in pages">
+                <page-info info="page"></page-info>
+              </div>
+            </div>
+          </div>
+          <div class="pure-u-7-8">
+            <div class="padded">
+              <h1>{{ site_title }}</h1>
+            </div>
           </div>
         </div>
 
+        <div id="main" class="pure-g">
+        </div>
+
+        <div id="footer" class="pure-g">
+          <div class="pure-u-1-1">
+            <div class="padded">
+              <h2>{{ site_quote }}</h2>
+            </div>
+          </div>
+        </div>
+        
         <!-- Modules -->
         <script src="js/app.js"></script>
 
@@ -47,7 +71,25 @@
 
    #+NAME: main css
    #+begin_src css :tangle app/css/main.css :padline no
+     .padded {
+         padding: 1em;
+     }
    #+end_src
+
+*** Pure CSS
+
+    [[index template]]
+
+    : <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
+    
+    : <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    : <!--[if lte IE 8]>
+    :     <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/grids-responsive-old-ie-min.css">
+    : <![endif]-->
+    : <!--[if gt IE 8]><!-->
+    :     <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/grids-responsive-min.css">
+    : <!--<![endif]-->
 
 * Scope
 ** Controllers
@@ -124,7 +166,7 @@
 
    #+NAME: pageInfo template
    #+begin_src web :tangle app/js/directives/pageInfo.html :padline no
-     <a href="#">{{ info.title }}</a>
+     <button class="pure-button pure-button-primary">{{ info.title }}</button>
    #+end_src
 
 * Dev
