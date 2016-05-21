@@ -19,6 +19,7 @@
 <li><a href="#sec-2-2-1">2.2.1. pageInfo</a></li>
 </ul>
 </li>
+<li><a href="#sec-2-3">2.3. Services</a></li>
 </ul>
 </li>
 <li><a href="#sec-3">3. Dev</a>
@@ -53,32 +54,33 @@
         <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/grids-responsive-min.css">
         <!--<![endif]-->
       </head>
+
+    <body ng-app="pHill" ng-controller="MainController">
     
-      <body ng-app="pHill" ng-controller="MainController">
+      <!-- header -->
+      <div id="header" class="pure-g pure-img">
     
-        <!-- header -->
-        <div id="header" class="pure-g pure-img">
-    
-          <!-- logo -->
-          <div class="pure-u-1-8">
-            <div id="logo" class="padded-half">
-              <img class="pure-img" ng-src="{{ site_logo }}">
-            </div>
+        <!-- logo -->
+        <div class="pure-u-3-24 pure-u-sm-4-24 pure-u-lg-5-24">
+          <div id="logo" class="padded-half">
+            <img class="pure-img" ng-src="{{ site_logo }}">
           </div>
-    
-          <!-- title -->
-          <div class="title pure-u-7-8">
-            <div class="padded-1">
-              <h1>{{ site_title }}</h1>
-            </div>
-          </div>
-    
         </div>
     
+        <!-- title -->
+        <div class="title pure-u-21-24 pure-u-sm-20-24 pure-u-lg-19-24">
+          <div class="padded-1">
+            <h1>{{ site_title }}</h1>
+          </div>
+        </div>
+    
+      </div>
+
+        <!-- main -->
         <div id="main" class="pure-g">
     
           <!-- nav -->
-          <div class="pure-u-1-7 pure-u-sm-1-8">
+          <div class="pure-u-3-24 pure-u-sm-4-24">
             <div id="nav"> 
               <div class="pure-menu custom-restricted-width">
                 <nav>
@@ -92,12 +94,18 @@
             </div>
           </div>
     
-          <div id="content" class="pure-u-6-7 pure-u-sm-8-9">
-            {{ page_content }}
+          <!-- content -->
+          <div class="pure-u-12-24 pure-u-sm-14-24">
+            <div id="content" class="padded-1">
+              <div ng-repeat="activity in activities">
+                <p>{{ activity.work_area }}</p>
+              </div>
+            </div>
           </div>
     
         </div>
     
+        <!-- footer -->
         <div id="footer" class="pure-g">
           <div class="pure-u-1-1">
             <div class="padded-1">
@@ -114,6 +122,10 @@
     
         <!-- Directives -->
         <script src="js/directives/pageInfo.js"></script>
+    
+        <!-- Services -->
+        <script src="js/services/activities.js"></script>
+    
       </body>
     </html>
 
@@ -128,6 +140,8 @@
     html {
         background: url('../img/audrey_jump.jpg') top center no-repeat;
         background-size: 100%;
+        //background-color: rgba(27,125,100,0.7);
+        background-color: rgba(242,172,188,0.3);
     }
     
     .custom-restricted-width {
@@ -144,17 +158,24 @@
     
     .button-go {
         background: rgb(27, 125, 0);
+        border-radius: 5px;
         margin: 2px 0;
+    
+        box-shadow:
+        -1px -1px 0 rgba(75,70,59,0.5),
+        1px -1px 0 rgba(75,70,59,0.5),
+        -1px 1px 0 rgba(75,70,59,0.5),
+        1px 1px 0 rgba(75,70,59,0.5);
     }
     
     .pure-g [class *= "title"] {
         font-family: Lobster, 'Clicker Script', 'Kaushan Script', 'News Cycle', BenchNine, 'Poiret One', 'Open Sans Condensed', Playball, 'Shadows Into Light Two';
         color: white;
         text-shadow:
-        -1px -1px 0 #000,
-        1px -1px 0 #000,
-        -1px 1px 0 #000,
-        1px 1px 0 #000;
+        -1px -1px 0 rgba(0,0,0,0.3),
+        1px -1px 0 rgba(0,0,0,0.3),
+        -1px 1px 0 rgba(0,0,0,0.3),
+        1px 1px 0 rgba(0,0,0,0.3);
     
         font-size: 2em;
     }
@@ -177,10 +198,30 @@
         text-align: center;
         font-size: 1.5em;
     }
+    
+    /*content*/
+    
+    #content {
+        background: white;
+        border-radius: 15px;
+        margin: 0.5em;
+        height: 350px;
+        overflow-y: scroll;
+    
+        box-shadow:
+        -1px -1px 0 rgba(75,70,59,0.5),
+        1px -1px 0 rgba(75,70,59,0.5),
+        -1px 1px 0 rgba(75,70,59,0.5),
+        1px 1px 0 rgba(75,70,59,0.5);
+    }
+    
+    #content ul {
+    
+    }
 
 ### Pure CSS<a id="sec-1-1-1" name="sec-1-1-1"></a>
 
-1
+
 
     <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
 
@@ -203,7 +244,12 @@
 
 <./app/js/controllers/MainController.js>
 
-    app.controller('MainController', ['$scope', function($scope) {
+    app.controller('MainController', ['$scope', 'activities', function($scope, activities) {
+    
+        activities.success(function(data) {
+            $scope.activities = data;
+        });
+    
         $scope.site_title = 'Prairie Hill Learning Center';
         $scope.site_quote = 'Education is a natural process spontaneously carried out by the human individual, and is acquired not by listening to words but by experiencing them. --Maria Montessori, Education for a New World';
         $scope.site_logo = 'img/logo.jpg';
@@ -290,6 +336,20 @@
     <li class="pure-menu-item">
       <button class="pure-button pure-button-primary button-go pure-u-1-1">{{ info.title }}</button>
     </li>
+
+## Services<a id="sec-2-3" name="sec-2-3"></a>
+
+<./app/js/services/activities.js>
+
+    app.factory('activities', ['$http', function($http) {
+        return $http.get('http://phill-new.herokuapp.com/api/v1/activities')
+            .success(function(data) {
+                return data;
+            })
+            .error(function(err) {
+                return err;
+            });
+    }]);
 
 # Dev<a id="sec-3" name="sec-3"></a>
 

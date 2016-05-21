@@ -5,6 +5,8 @@ html, button, input, select, textarea,
 html {
     background: url('../img/audrey_jump.jpg') top center no-repeat;
     background-size: 100%;
+    //background-color: rgba(27,125,100,0.7);
+    background-color: rgba(242,172,188,0.3);
 }
 
 .custom-restricted-width {
@@ -21,17 +23,24 @@ html {
 
 .button-go {
     background: rgb(27, 125, 0);
+    border-radius: 5px;
     margin: 2px 0;
+
+    box-shadow:
+    -1px -1px 0 rgba(75,70,59,0.5),
+    1px -1px 0 rgba(75,70,59,0.5),
+    -1px 1px 0 rgba(75,70,59,0.5),
+    1px 1px 0 rgba(75,70,59,0.5);
 }
 
 .pure-g [class *= "title"] {
     font-family: Lobster, 'Clicker Script', 'Kaushan Script', 'News Cycle', BenchNine, 'Poiret One', 'Open Sans Condensed', Playball, 'Shadows Into Light Two';
     color: white;
     text-shadow:
-    -1px -1px 0 #000,
-    1px -1px 0 #000,
-    -1px 1px 0 #000,
-    1px 1px 0 #000;
+    -1px -1px 0 rgba(0,0,0,0.3),
+    1px -1px 0 rgba(0,0,0,0.3),
+    -1px 1px 0 rgba(0,0,0,0.3),
+    1px 1px 0 rgba(0,0,0,0.3);
     
     font-size: 2em;
 }
@@ -53,4 +62,24 @@ html {
 #footer .quote {
     text-align: center;
     font-size: 1.5em;
+}
+
+/*content*/
+
+#content {
+    background: white;
+    border-radius: 15px;
+    margin: 0.5em;
+    height: 350px;
+    overflow-y: scroll;
+
+    box-shadow:
+    -1px -1px 0 rgba(75,70,59,0.5),
+    1px -1px 0 rgba(75,70,59,0.5),
+    -1px 1px 0 rgba(75,70,59,0.5),
+    1px 1px 0 rgba(75,70,59,0.5);
+}
+
+#content ul {
+    
 }
