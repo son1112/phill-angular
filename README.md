@@ -61,14 +61,14 @@
       <div id="header" class="pure-g pure-img">
     
         <!-- logo -->
-        <div class="pure-u-3-24 pure-u-sm-4-24 pure-u-lg-5-24">
+        <div class="pure-u-8-24 pure-u-sm-4-24 pure-u-lg-5-24">
           <div id="logo" class="padded-half">
             <img class="pure-img" ng-src="{{ site_logo }}">
           </div>
         </div>
     
         <!-- title -->
-        <div class="title pure-u-21-24 pure-u-sm-20-24 pure-u-lg-19-24">
+        <div class="title pure-u-16-24 pure-u-sm-20-24 pure-u-lg-19-24">
           <div class="padded-1">
             <h1>{{ site_title }}</h1>
           </div>
@@ -80,7 +80,7 @@
         <div id="main" class="pure-g">
     
           <!-- nav -->
-          <div class="pure-u-3-24 pure-u-sm-4-24">
+          <div class="pure-u-10-24 pure-u-sm-5-24">
             <div id="nav"> 
               <div class="pure-menu custom-restricted-width">
                 <nav>
@@ -95,7 +95,7 @@
           </div>
     
           <!-- content -->
-          <div class="pure-u-12-24 pure-u-sm-14-24">
+          <div class="pure-u-14-24 pure-u-sm-19-24">
             <div id="content" class="padded-1">
               <div ng-repeat="activity in activities">
                 <p>{{ activity.work_area }}</p>
@@ -162,20 +162,20 @@
         margin: 2px 0;
     
         box-shadow:
-        -1px -1px 0 rgba(75,70,59,0.5),
-        1px -1px 0 rgba(75,70,59,0.5),
-        -1px 1px 0 rgba(75,70,59,0.5),
-        1px 1px 0 rgba(75,70,59,0.5);
+        -1px -1px 0 rgba(0,0,0,0.1),
+        1px -1px 0 rgba(0,0,0,0.1),
+        -1px 1px 0 rgba(0,0,0,0.1),
+        1px 1px 0 rgba(0,0,0,0.1);
     }
     
     .pure-g [class *= "title"] {
         font-family: Lobster, 'Clicker Script', 'Kaushan Script', 'News Cycle', BenchNine, 'Poiret One', 'Open Sans Condensed', Playball, 'Shadows Into Light Two';
         color: white;
         text-shadow:
-        -1px -1px 0 rgba(0,0,0,0.3),
-        1px -1px 0 rgba(0,0,0,0.3),
-        -1px 1px 0 rgba(0,0,0,0.3),
-        1px 1px 0 rgba(0,0,0,0.3);
+        -1px -1px 0 rgba(75,70,59,0.5),
+        1px -1px 0 rgba(75,70,59,0.5),
+        -1px 1px 0 rgba(75,70,59,0.5),
+        1px 1px 0 rgba(75,70,59,0.5);
     
         font-size: 2em;
     }

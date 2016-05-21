@@ -27,20 +27,20 @@ html {
     margin: 2px 0;
 
     box-shadow:
-    -1px -1px 0 rgba(75,70,59,0.5),
-    1px -1px 0 rgba(75,70,59,0.5),
-    -1px 1px 0 rgba(75,70,59,0.5),
-    1px 1px 0 rgba(75,70,59,0.5);
+    -1px -1px 0 rgba(0,0,0,0.1),
+    1px -1px 0 rgba(0,0,0,0.1),
+    -1px 1px 0 rgba(0,0,0,0.1),
+    1px 1px 0 rgba(0,0,0,0.1);
 }
 
 .pure-g [class *= "title"] {
     font-family: Lobster, 'Clicker Script', 'Kaushan Script', 'News Cycle', BenchNine, 'Poiret One', 'Open Sans Condensed', Playball, 'Shadows Into Light Two';
     color: white;
     text-shadow:
-    -1px -1px 0 rgba(0,0,0,0.3),
-    1px -1px 0 rgba(0,0,0,0.3),
-    -1px 1px 0 rgba(0,0,0,0.3),
-    1px 1px 0 rgba(0,0,0,0.3);
+    -1px -1px 0 rgba(75,70,59,0.5),
+    1px -1px 0 rgba(75,70,59,0.5),
+    -1px 1px 0 rgba(75,70,59,0.5),
+    1px 1px 0 rgba(75,70,59,0.5);
     
     font-size: 2em;
 }
