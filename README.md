@@ -61,14 +61,14 @@
       <div id="header" class="pure-g pure-img">
     
         <!-- logo -->
-        <div class="pure-u-8-24 pure-u-sm-4-24 pure-u-lg-5-24">
+        <div class="pure-u-8-24 pure-u-sm-4-24 pure-u-lg-5-24 pure-u-xl-4-24">
           <div id="logo" class="padded-half">
             <img class="pure-img" ng-src="{{ site_logo }}">
           </div>
         </div>
     
         <!-- title -->
-        <div class="title pure-u-16-24 pure-u-sm-20-24 pure-u-lg-19-24">
+        <div class="title pure-u-16-24 pure-u-sm-20-24 pure-u-lg-19-24 pure-u-xl-20-24">
           <div class="padded-1">
             <h1>{{ site_title }}</h1>
           </div>
@@ -80,7 +80,7 @@
         <div id="main" class="pure-g">
     
           <!-- nav -->
-          <div class="pure-u-10-24 pure-u-sm-5-24">
+          <div class="pure-u-10-24 pure-u-sm-5-24 pure-u-xl-4-24">
             <div id="nav"> 
               <div class="pure-menu custom-restricted-width">
                 <nav>
@@ -95,7 +95,7 @@
           </div>
     
           <!-- content -->
-          <div class="pure-u-14-24 pure-u-sm-19-24">
+          <div class="pure-u-14-24 pure-u-sm-19-24 pure-u-xl-20-24">
             <div id="content" class="padded-1">
               <div ng-repeat="activity in activities">
                 <p>{{ activity.work_area }}</p>
@@ -321,6 +321,8 @@
 
 <./app/js/directives/pageInfo.js>
 
+6
+
     app.directive('pageInfo', function() {
             return {
             restrict: 'E',
@@ -334,7 +336,9 @@
 <./app/js/directives/pageInfo.html>
 
     <li class="pure-menu-item">
-      <button class="pure-button pure-button-primary button-go pure-u-1-1">{{ info.title }}</button>
+      <button class="pure-button pure-button-primary button-go pure-u-1-1">
+        <strong>{{ info.title }}</strong>
+      </button>
     </li>
 
 ## Services<a id="sec-2-3" name="sec-2-3"></a>
