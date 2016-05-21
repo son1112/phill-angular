@@ -36,7 +36,21 @@ html {
     font-size: 2em;
 }
 
+#nav {
+    padding: 0.5em;
+}
+
 #logo {
+    margin: 0.5em;
     background: white;
     border-radius: 5%;
+}
+
+#footer {
+    background: rgba(254,237,0,0.7);
+}
+
+#footer .quote {
+    text-align: center;
+    font-size: 1.5em;
 }

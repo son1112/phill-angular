@@ -101,7 +101,7 @@
         <div id="footer" class="pure-g">
           <div class="pure-u-1-1">
             <div class="padded-1">
-              <h2>{{ site_quote }}</h2>
+              <p class="quote">{{ site_quote }}</p>
             </div>
           </div>
         </div>
@@ -159,9 +159,23 @@
         font-size: 2em;
     }
     
+    #nav {
+        padding: 0.5em;
+    }
+    
     #logo {
+        margin: 0.5em;
         background: white;
         border-radius: 5%;
+    }
+    
+    #footer {
+        background: rgba(254,237,0,0.7);
+    }
+    
+    #footer .quote {
+        text-align: center;
+        font-size: 1.5em;
     }
 
 ### Pure CSS<a id="sec-1-1-1" name="sec-1-1-1"></a>
